@@ -18,10 +18,10 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../../swift-primitives/swift-system-primitives"),
-        .package(path: "../swift-darwin"),
-        .package(path: "../swift-linux"),
-        .package(path: "../swift-windows"),
+        .package(url: "https://github.com/swift-primitives/swift-system-primitives.git", from: "0.0.1"),
+        .package(url: "https://github.com/swift-foundations/swift-darwin.git", from: "0.0.1"),
+        .package(url: "https://github.com/swift-foundations/swift-linux.git", from: "0.0.1"),
+        .package(url: "https://github.com/swift-foundations/swift-windows.git", from: "0.0.1"),
     ],
     targets: [
         .target(
