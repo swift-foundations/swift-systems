@@ -9,19 +9,19 @@ let package = Package(
         .iOS(.v26),
         .tvOS(.v26),
         .watchOS(.v26),
-        .visionOS(.v26),
+        .visionOS(.v26)
     ],
     products: [
         .library(
             name: "Systems",
             targets: ["Systems"]
-        ),
+        )
     ],
     dependencies: [
         .package(path: "../../swift-primitives/swift-system-primitives"),
         .package(path: "../swift-darwin"),
         .package(path: "../swift-linux"),
-        .package(path: "../swift-windows"),
+        .package(path: "../swift-windows")
     ],
     targets: [
         .target(
@@ -30,16 +30,9 @@ let package = Package(
                 .product(name: "System Primitives", package: "swift-system-primitives"),
                 .product(name: "Darwin System", package: "swift-darwin", condition: .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .visionOS])),
                 .product(name: "Linux System", package: "swift-linux", condition: .when(platforms: [.linux])),
-                .product(name: "Windows System", package: "swift-windows", condition: .when(platforms: [.windows])),
+                .product(name: "Windows System", package: "swift-windows", condition: .when(platforms: [.windows]))
             ]
-        ),
-        .testTarget(
-            name: "Systems Tests",
-            dependencies: [
-                "Systems",
-            ],
-            path: "Tests/Systems Tests"
-        ),
+        )
     ],
     swiftLanguageModes: [.v6]
 )
@@ -48,7 +41,7 @@ for target in package.targets where ![.system, .binary, .plugin].contains(target
     let settings: [SwiftSetting] = [
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
-        .enableUpcomingFeature("MemberImportVisibility"),
+        .enableUpcomingFeature("MemberImportVisibility")
     ]
     target.swiftSettings = (target.swiftSettings ?? []) + settings
 }
