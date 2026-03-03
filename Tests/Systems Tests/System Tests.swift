@@ -38,9 +38,9 @@ struct SystemTests {
         }
     }
 
-    @Test("processorCount matches topology cpuCount")
+    @Test("Processor.count matches topology cpuCount")
     func processorCountMatchesTopologyCpuCount() {
         let topology = System.topology()
-        #expect(topology.cpuCount == System.processorCount)
+        #expect(topology.cpuCount == Int(System.Processor.count))
     }
 }

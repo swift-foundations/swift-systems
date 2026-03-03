@@ -44,7 +44,7 @@ extension System {
     /// }
     /// ```
     public static func topology() -> Topology {
-        let cpuCount = processorCount
+        let cpuCount = Int(System.Processor.count)
 
         #if canImport(Darwin_System)
         let numa = discoverDarwinNUMA()
