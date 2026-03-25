@@ -64,7 +64,7 @@ extension System {
 import Darwin_Primitives
 
 /// Helper to avoid Darwin namespace conflict with system Darwin module.
-@inline(__always)
+@inline(always)
 private func discoverDarwinNUMA() -> System.Topology.NUMA.State {
     Darwin_Primitives.Darwin.System.NUMA.discover()
 }
