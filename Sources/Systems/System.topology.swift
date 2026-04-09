@@ -15,10 +15,8 @@ public import System_Primitives
 import Darwin_System
 #elseif canImport(Linux_System)
 import Linux_System
-import Linux_Primitives
 #elseif canImport(Windows_System)
 import Windows_System
-import Windows_Primitives
 #endif
 
 extension System {
@@ -46,12 +44,8 @@ extension System {
     public static func topology() -> Topology {
         let cpuCount = Int(System.Processor.count)
 
-        #if canImport(Darwin_System)
-        let numa = discoverDarwinNUMA()
-        #elseif canImport(Linux_System)
-        let numa = Linux.System.NUMA.discover()
-        #elseif canImport(Windows_System)
-        let numa = Windows.System.NUMA.discover()
+        #if canImport(Darwin_System) || canImport(Linux_System) || canImport(Windows_System)
+        let numa = System.Topology.NUMA.discover()
         #else
         let numa = Topology.NUMA.State.unavailable
         #endif
@@ -59,13 +53,3 @@ extension System {
         return Topology(cpuCount: cpuCount, numa: numa)
     }
 }
-
-#if canImport(Darwin_System)
-import Darwin_Primitives
-
-/// Helper to avoid Darwin namespace conflict with system Darwin module.
-@inline(always)
-private func discoverDarwinNUMA() -> System.Topology.NUMA.State {
-    Darwin_Primitives.Darwin.System.NUMA.discover()
-}
-#endif
