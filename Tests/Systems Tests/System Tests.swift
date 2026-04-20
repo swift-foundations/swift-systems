@@ -15,8 +15,8 @@ import Testing
 @Suite("System")
 struct SystemTests {
 
-    @Test("topology returns valid data")
-    func topologyReturnsValidData() {
+    @Test
+    func `topology returns valid data`() {
         let topology = System.topology()
 
         #expect(topology.cpuCount >= 1)
@@ -38,8 +38,8 @@ struct SystemTests {
         }
     }
 
-    @Test("Processor.count matches topology cpuCount")
-    func processorCountMatchesTopologyCpuCount() {
+    @Test
+    func `Processor.count matches topology cpuCount`() {
         let topology = System.topology()
         #expect(topology.cpuCount == Int(System.Processor.count))
     }
