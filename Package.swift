@@ -19,18 +19,20 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../../swift-primitives/swift-system-primitives"),
+        .package(path: "../swift-kernel"),
         .package(path: "../swift-darwin"),
         .package(path: "../swift-linux"),
-        .package(path: "../swift-windows")
+        .package(path: "../../swift-microsoft/swift-windows-32")
     ],
     targets: [
         .target(
             name: "Systems",
             dependencies: [
                 .product(name: "System Primitives", package: "swift-system-primitives"),
+                .product(name: "Kernel", package: "swift-kernel"),
                 .product(name: "Darwin System", package: "swift-darwin", condition: .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .visionOS])),
                 .product(name: "Linux System", package: "swift-linux", condition: .when(platforms: [.linux])),
-                .product(name: "Windows System", package: "swift-windows", condition: .when(platforms: [.windows]))
+                .product(name: "Windows 32 Kernel System", package: "swift-windows-32", condition: .when(platforms: [.windows]))
             ]
         ),
         .testTarget(

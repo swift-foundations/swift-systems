@@ -15,6 +15,6 @@
 @_exported import Darwin_System
 #elseif canImport(Linux_System)
 @_exported import Linux_System
-#elseif canImport(Windows_System)
-@_exported import Windows_System
+#elseif canImport(Windows_32_Kernel_System)
+@_exported import Windows_32_Kernel_System
 #endif

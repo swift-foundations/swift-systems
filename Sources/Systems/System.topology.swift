@@ -10,13 +10,14 @@
 // ===----------------------------------------------------------------------===//
 
 public import System_Primitives
+internal import Kernel
 
 #if canImport(Darwin_System)
 import Darwin_System
 #elseif canImport(Linux_System)
 import Linux_System
-#elseif canImport(Windows_System)
-import Windows_System
+#elseif canImport(Windows_32_Kernel_System)
+import Windows_32_Kernel_System
 #endif
 
 extension System {
@@ -44,7 +45,7 @@ extension System {
     public static func topology() -> Topology {
         let cpuCount = Int(System.Processor.count)
 
-        #if canImport(Darwin_System) || canImport(Linux_System) || canImport(Windows_System)
+        #if canImport(Darwin_System) || canImport(Linux_System) || canImport(Windows_32_Kernel_System)
         let numa = System.Topology.NUMA.discover()
         #else
         let numa = Topology.NUMA.State.unavailable
