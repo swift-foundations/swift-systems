@@ -32,7 +32,7 @@ let package = Package(
                 .product(name: "Kernel", package: "swift-kernel"),
                 .product(name: "Darwin System", package: "swift-darwin", condition: .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .visionOS])),
                 .product(name: "Linux System", package: "swift-linux", condition: .when(platforms: [.linux])),
-                .product(name: "Windows 32 Kernel System", package: "swift-windows-32", condition: .when(platforms: [.windows]))
+                .product(name: "Windows 32 Kernel System", package: "swift-windows-standard", condition: .when(platforms: [.windows]))
             ]
         ),
         .testTarget(
