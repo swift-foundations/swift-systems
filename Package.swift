@@ -18,11 +18,11 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../../swift-primitives/swift-system-primitives"),
-        .package(path: "../swift-kernel"),
-        .package(path: "../swift-darwin"),
-        .package(path: "../swift-linux"),
-        .package(path: "../../swift-microsoft/swift-windows-32")
+        .package(url: "https://github.com/swift-primitives/swift-system-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-kernel.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-darwin.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-linux.git", branch: "main"),
+        .package(url: "https://github.com/swift-microsoft/swift-windows-standard.git", branch: "main")
     ],
     targets: [
         .target(
