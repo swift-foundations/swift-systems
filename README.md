@@ -82,7 +82,7 @@ Quantities in the `System` namespace are typed, not raw integers: `System.Proces
 ## Community
 
 <!-- BEGIN: discussion -->
-*Discussion thread will be created at first public flip.*
+*Discussion thread will be created at the first public release.*
 <!-- END: discussion -->
 
 ## License
