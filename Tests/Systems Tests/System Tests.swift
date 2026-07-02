@@ -10,7 +10,8 @@
 // ===----------------------------------------------------------------------===//
 
 import Testing
-@testable import System
+import Kernel_System
+@testable import Systems
 
 @Suite("System")
 struct SystemTests {

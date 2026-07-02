@@ -39,6 +39,7 @@ let package = Package(
             name: "Systems Tests",
             dependencies: [
                 "Systems",
+                .product(name: "Kernel System", package: "swift-kernel"),
             ]
         ),
     ],
