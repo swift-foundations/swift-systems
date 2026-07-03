@@ -9,8 +9,9 @@
 //
 // ===----------------------------------------------------------------------===//
 
-import Testing
 import Kernel_System
+import Testing
+
 @testable import Systems
 
 @Suite("System")
@@ -27,9 +28,11 @@ struct SystemTests {
         case .unavailable:
             // Expected on Darwin
             break
+
         case .uniformAccess:
             // Expected on single-node systems
             break
+
         case .nonUniform(let nodes):
             // Multi-node NUMA system
             #expect(!nodes.isEmpty)
