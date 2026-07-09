@@ -14,37 +14,39 @@ import Testing
 
 @testable import Systems
 
-@Suite("System")
-struct SystemTests {
+extension System {
+    @Suite("System")
+    struct Test {
 
-    @Test
-    func `topology returns valid data`() {
-        let topology = System.topology()
+        @Test
+        func `topology returns valid data`() {
+            let topology = System.topology()
 
-        #expect(topology.cpuCount >= 1)
+            #expect(topology.cpuCount >= 1)
 
-        // NUMA state should be one of the valid cases
-        switch topology.numa {
-        case .unavailable:
-            // Expected on Darwin
-            break
+            // NUMA state should be one of the valid cases
+            switch topology.numa {
+            case .unavailable:
+                // Expected on Darwin
+                break
 
-        case .uniformAccess:
-            // Expected on single-node systems
-            break
+            case .uniformAccess:
+                // Expected on single-node systems
+                break
 
-        case .nonUniform(let nodes):
-            // Multi-node NUMA system
-            #expect(!nodes.isEmpty)
-            for node in nodes {
-                #expect(!node.cpus.isEmpty)
+            case .nonUniform(let nodes):
+                // Multi-node NUMA system
+                #expect(!nodes.isEmpty)
+                for node in nodes {
+                    #expect(!node.cpus.isEmpty)
+                }
             }
         }
-    }
 
-    @Test
-    func `Processor.count matches topology cpuCount`() {
-        let topology = System.topology()
-        #expect(topology.cpuCount == Int(System.Processor.count))
+        @Test
+        func `Processor.count matches topology cpuCount`() {
+            let topology = System.topology()
+            #expect(topology.cpuCount == Int(System.Processor.count))
+        }
     }
 }
