@@ -22,7 +22,7 @@ let package = Package(
         .package(url: "https://github.com/swift-foundations/swift-kernel.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-darwin.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-linux.git", branch: "main"),
-        .package(url: "https://github.com/swift-microsoft/swift-windows-standard.git", branch: "main")
+        .package(url: "https://github.com/swift-microsoft/swift-windows-32.git", branch: "main")
     ],
     targets: [
         .target(
@@ -32,7 +32,7 @@ let package = Package(
                 .product(name: "Kernel", package: "swift-kernel"),
                 .product(name: "Darwin System", package: "swift-darwin", condition: .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .visionOS])),
                 .product(name: "Linux System", package: "swift-linux", condition: .when(platforms: [.linux])),
-                .product(name: "Windows 32 Kernel System", package: "swift-windows-standard", condition: .when(platforms: [.windows]))
+                .product(name: "Windows 32 Kernel System", package: "swift-windows-32", condition: .when(platforms: [.windows]))
             ]
         ),
         .testTarget(
