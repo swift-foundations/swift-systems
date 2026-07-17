@@ -15,7 +15,7 @@ import Testing
 @testable import Systems
 
 extension System {
-    @Suite("System")
+    @Suite
     struct Test {
 
         @Test
