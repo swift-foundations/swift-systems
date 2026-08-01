@@ -12,11 +12,11 @@
 internal import Kernel
 public import System_Primitives
 
-#if canImport(Darwin_System)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
     import Darwin_System
-#elseif canImport(Linux_System)
+#elseif os(Linux) || os(Android)
     import Linux_System
-#elseif canImport(Windows_32_Kernel_System)
+#elseif os(Windows)
     import Windows_32_Kernel_System
 #endif
 
@@ -45,7 +45,7 @@ extension System {
     public static func topology() -> Topology {
         let cpuCount = Int(Self.Processor.count)
 
-        #if canImport(Darwin_System) || canImport(Linux_System) || canImport(Windows_32_Kernel_System)
+        #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || os(Linux) || os(Android) || os(Windows)
             let numa = Self.Topology.NUMA.discover()
         #else
             let numa = Topology.NUMA.State.unavailable
