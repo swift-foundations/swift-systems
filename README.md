@@ -34,7 +34,7 @@ Add swift-systems to your `Package.swift` (pre-release; no tags published yet):
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-foundations/swift-systems.git", branch: "main")
+    .package(url: "https://github.com/swift-compositions/swift-systems.git", branch: "main")
 ]
 ```
 
@@ -61,7 +61,7 @@ Add the product to your target:
 
 | Re-exported module | When you get it | What it contributes |
 |--------------------|-----------------|---------------------|
-| `System_Primitives` | Always | The `System` namespace: `System.Topology`, `System.Topology.NUMA.State` / `.Node`, typed quantities (`System.Processor.Count`, `System.Memory.Capacity`, `System.Page.Size`), `System.Name` |
+| `System` | Always | The `System` namespace: `System.Topology`, `System.Topology.NUMA.State` / `.Node`, typed quantities (`System.Processor.Count`, `System.Memory.Capacity`, `System.Page.Size`), `System.Name` |
 | `Darwin_System` | macOS, iOS, tvOS, watchOS, visionOS | `System.Memory.total`, physical core count; NUMA reports `.unavailable` (Darwin does not expose NUMA) |
 | `Linux_System` | Linux | NUMA discovery via `/sys/devices/system/node/` |
 | `Windows_32_Kernel_System` | Windows | NUMA discovery via the Win32 NUMA API |

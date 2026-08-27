@@ -1,4 +1,4 @@
-@_exported import System_Primitives
+@_exported import System
 
 #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS) || os(visionOS)
     @_exported import Darwin_System

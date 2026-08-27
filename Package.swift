@@ -19,19 +19,19 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-system-primitives.git",
+            url: "https://github.com/swift-molecules/swift-system.git",
             branch: "main"
         ),
-        .package(url: "https://github.com/swift-foundations/swift-kernel.git", branch: "main"),
-        .package(url: "https://github.com/swift-foundations/swift-darwin.git", branch: "main"),
-        .package(url: "https://github.com/swift-foundations/swift-linux.git", branch: "main"),
+        .package(url: "https://github.com/swift-compositions/swift-kernel.git", branch: "main"),
+        .package(url: "https://github.com/swift-compositions/swift-darwin.git", branch: "main"),
+        .package(url: "https://github.com/swift-compositions/swift-linux.git", branch: "main"),
         .package(url: "https://github.com/swift-microsoft/swift-windows-32.git", branch: "main"),
     ],
     targets: [
         .target(
             name: "Systems",
             dependencies: [
-                .product(name: "System Primitives", package: "swift-system-primitives"),
+                .product(name: "System", package: "swift-system"),
                 .product(name: "Kernel", package: "swift-kernel"),
                 .product(
                     name: "Darwin System",
