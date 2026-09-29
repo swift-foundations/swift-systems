@@ -19,13 +19,14 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-system.git",
+            url: "https://github.com/swift-atoms/swift-system.git",
             branch: "main"
         ),
         .package(url: "https://github.com/swift-compositions/swift-kernel.git", branch: "main"),
         .package(url: "https://github.com/swift-compositions/swift-darwin.git", branch: "main"),
         .package(url: "https://github.com/swift-compositions/swift-linux.git", branch: "main"),
         .package(url: "https://github.com/swift-microsoft/swift-windows-32.git", branch: "main"),
+        .package(url: "https://github.com/swift-compositions/swift-test-application.git", branch: "main"),
     ],
     targets: [
         .target(
@@ -48,6 +49,8 @@ let package = Package(
                     package: "swift-windows-32",
                     condition: .when(platforms: [.windows])
                 ),
+
+
             ]
         ),
         .testTarget(
@@ -55,6 +58,8 @@ let package = Package(
             dependencies: [
                 "Systems",
                 .product(name: "Kernel System", package: "swift-kernel"),
+                .product(name: "System", package: "swift-system"),
+                .product(name: "Testing", package: "swift-test-application"),
             ]
         ),
     ],

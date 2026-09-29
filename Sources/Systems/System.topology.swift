@@ -12,7 +12,7 @@ public import System
 extension System {
 
     public static func topology() -> Topology {
-        let cpuCount = Int(Self.Processor.count)
+        let cpuCount = Int(Self.processorCount)
 
         #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || os(Linux) || os(Android) || os(Windows)
             let numa = Self.Topology.NUMA.discover()

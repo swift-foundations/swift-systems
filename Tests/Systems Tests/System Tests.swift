@@ -34,7 +34,7 @@ extension System {
         @Test
         func `Processor.count matches topology cpuCount`() {
             let topology = System.topology()
-            #expect(topology.cpuCount == Int(System.Processor.count))
+            #expect(topology.cpuCount == Int(System.processorCount))
         }
     }
 }
